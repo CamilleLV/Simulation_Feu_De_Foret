@@ -1,19 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package feudeforet;
 
-/**
- *
- * @author etulyon1
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package feudeforet;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -29,14 +15,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ *
+ * @author Camille LAVERIE
+ */
 public class JFenetre extends JFrame {
     
+   
     
-    
-    private final double probabilité = 0.6;
-    private final int MAX_DEF_ROW = 20;
-    private final int MAX_DEF_COLUMN = 30;
+    private final double probabilite = Config.probabilite;
+    private final int MAX_DEF_ROW = Config.height;
+    private final int MAX_DEF_COLUMN = Config.width;
     
     
     
@@ -73,7 +62,7 @@ public class JFenetre extends JFrame {
         if(isFinished) {
             header.add(new JLabel("Terminé !"));
         } else {
-            header.add(new JLabel("INCENDIE !!!"));
+            header.add(new JLabel("Il reste du feu.."));
             
         }
         header.setMaximumSize(new Dimension(800,75));
@@ -135,8 +124,8 @@ public class JFenetre extends JFrame {
             for(int row=0; row<cases.length; row++) {
              for(int column=0; column<cases[row].length; column++) {
                  if(cases[row][column].getState() == 1) {
-                     listVoisins.addAll(cases[row][column].getVoisins(cases)); //Ca rajoute les voisins en feu sans écraser les anciennes valeurs
-                     cases[row][column].setState(2);
+                     listVoisins.addAll(cases[row][column].getVoisins(cases)); //Ca rajoute les voisins en feu sans écraser 
+                     cases[row][column].setState(2);                           //les anciennes valeurs
                      
                  }
              }
@@ -144,7 +133,7 @@ public class JFenetre extends JFrame {
         }
         for(Case c : listVoisins){
             
-            if(Math.random()<probabilité && c.getState() == 0){ //Math.random() initialement entre 0 et 1.
+            if(Math.random()<probabilite && c.getState() == 0){ //Math.random() initialement entre 0 et 1.
                 c.setState(1);
             }
             

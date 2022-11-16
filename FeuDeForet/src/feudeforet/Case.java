@@ -1,20 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package feudeforet;
 
 import java.util.ArrayList;
 /**
  *
- * @author etulyon1
+ * @author Camille LAVERIE
  */
 class Case{
     
     
-    private final int MAX_DEF_ROW = 20;
-    private final int MAX_DEF_COLUMN = 30;
+    private final int MAX_DEF_ROW = Config.height;
+    private final int MAX_DEF_COLUMN = Config.width;
         
     
     

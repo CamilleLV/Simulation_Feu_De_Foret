@@ -1,13 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package feudeforet;
 
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import feudeforet.Case;
+package feudeforet;
 
 /**
  *
@@ -16,30 +8,26 @@ import feudeforet.Case;
 public class Main {
 
     
-    private static final int MAX_DEF_ROW = 20;
-    private static final int MAX_DEF_COLUMN = 30;
     private static final int[][] tabFeu = {{1,7},{2,12}};
+    
+    
+    private final int MAX_DEF_ROW;
+    private final int MAX_DEF_COLUMN; 
+    private final double probabilite;
         
-    
-    /*ResourceBundle bundle = ResourceBundle.getBundle("feudeforet.porperties.values");
-    String dimLargeur = bundle.getString("values.largeur");
-    String dimHauteur = bundle.getString("values.hauteur");
-    String posCasesEnFeux = bundle.getString("values.positionscaseenfeu");
-    String proba = bundle.getString("values.probabilité");*/    
-    /*ResourceBundle bundle = ResourceBundle.getBundle("feudeforet.porperties.values");
-    String tempLargeur = bundle.getString("values.largeur");
-    String tempHauteur = bundle.getString("values.hauteur");
-    
-    int dimLargeur = Integer.parseInt(tempLargeur);
-    int dimHauteur = Integer.parseInt(tempHauteur);*/
-    
-    
-        
-    
-
-    
+   
     public static void main(String[] args) {
+        new Main();
+    }
+    
+    public Main(){
+        Config.open();
         System.out.println("Ca fonctionne");
+        
+        MAX_DEF_ROW = Config.height;
+        MAX_DEF_COLUMN = Config.width;
+        probabilite = Config.probabilite;
+        System.out.println(probabilite);
         
                 
         // initialisation du tableau :
